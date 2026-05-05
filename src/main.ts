@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
+import LoadingScreen from './components/LoadingScreen.vue';
 import './index.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -8,6 +9,10 @@ import Lenis from 'lenis';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
+
+// Mount loading screen first
+const loadingApp = createApp(LoadingScreen);
+const loadingVm = loadingApp.mount('#loading-screen');
 
 // Initialize Lenis smooth scroll
 const lenis = new Lenis({
@@ -42,6 +47,11 @@ document.addEventListener('mouseover', (e) => {
   } else {
     document.body.classList.remove('hovered');
   }
+});
+
+// Hide loading screen when router is ready
+router.isReady().then(() => {
+  // Loading screen will animate out on its own via 'complete' emit
 });
 
 // App initialization

@@ -2,59 +2,46 @@
 import { RouterView, RouterLink } from 'vue-router'
 import Navigation from './components/Navigation.vue'
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const onLeave = (el: HTMLElement, done: () => void) => {
   const tl = gsap.timeline({ onComplete: done });
-  
-  // Fade out current page
+
   tl.to(el, {
     opacity: 0,
     scale: 0.95,
     filter: 'blur(10px)',
-    duration: 0.6,
+    duration: 0.4,
     ease: 'power2.inOut'
   });
 
-  // Flash to white
   tl.to('#flash-overlay', {
     opacity: 1,
-    duration: 0.4,
+    duration: 0.3,
     ease: 'power2.in'
-  }, '-=0.3');
+  }, '-=0.2');
 }
 
 const onEnter = (el: HTMLElement, done: () => void) => {
   window.scrollTo(0, 0);
-  
-  const tl = gsap.timeline({ 
-    onComplete: () => {
-      ScrollTrigger.refresh()
-      done()
-    } 
-  });
 
-  // Prepare entering page
-  gsap.set(el, { 
-    opacity: 0, 
-    scale: 1.05,
-    filter: 'blur(10px)'
-  });
+  // Force hide flash overlay immediately
+  gsap.set('#flash-overlay', { opacity: 0 })
 
-  // Fade out flash, fade in new page
-  tl.to('#flash-overlay', {
+  const tl = gsap.timeline({ onComplete: done });
+
+  gsap.set(el, {
     opacity: 0,
-    duration: 0.6,
-    ease: 'power2.out'
+    scale: 1.02,
+    filter: 'blur(4px)'
   });
 
   tl.to(el, {
     opacity: 1,
     scale: 1,
     filter: 'blur(0px)',
-    duration: 1,
+    duration: 0.5,
     ease: 'expo.out'
-  }, '-=0.4');
+  });
 }
 </script>
 
@@ -82,7 +69,7 @@ const onEnter = (el: HTMLElement, done: () => void) => {
       <div class="flex flex-col md:flex-row justify-between items-start gap-12 max-w-7xl mx-auto">
         <div class="space-y-6">
           <p class="font-serif text-2xl tracking-tighter">
-            TAKUMI<span class="text-primary">.</span>
+            MNCrew<span class="text-primary">.</span>
           </p>
           <p class="text-xs tracking-[0.2em] uppercase text-neutral-500">
             精進 — 絶え間ない改善への追求。

@@ -1,7 +1,14 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import gsap from 'gsap'
 import { projects } from '../data/projects'
+
+const router = useRouter()
+
+const goToProject = (id: number) => {
+  router.push(`/works/${id}`)
+}
 
 onMounted(() => {
   gsap.from('.work-header *', {
@@ -25,6 +32,7 @@ onMounted(() => {
       ease: 'power3.out'
     })
   })
+})
 </script>
 
 <template>
@@ -39,9 +47,10 @@ onMounted(() => {
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-48 max-w-7xl mx-auto items-start">
-      <article v-for="p in projects" :key="p.id" 
+      <article v-for="p in projects" :key="p.id"
                class="work-card group cursor-pointer relative"
-               :class="{'md:mt-32': p.offset}">
+               :class="{'md:mt-32': p.offset}"
+               @click="goToProject(p.id)">
         <div class="absolute -top-12 -left-12 text-[10vw] font-serif opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
           0{{ p.id }}
         </div>

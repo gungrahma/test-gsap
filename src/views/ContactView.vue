@@ -38,7 +38,7 @@ onMounted(() => {
         <div>
           <span class="text-xs tracking-[0.4em] text-neutral-500 uppercase block mb-6">EMAIL</span>
           <a href="mailto:hello@takumi.design" class="text-3xl md:text-5xl font-display hover:text-primary transition-colors duration-500">
-            hello@takumi.design
+            chloe@dev.com
           </a>
         </div>
         <div>

@@ -47,11 +47,11 @@ onMounted(() => {
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
         <div class="md:col-span-4 border-t border-white/10 pt-8">
           <span class="text-xs tracking-[0.4em] text-neutral-500 uppercase block mb-4">CHAPTER 01</span>
-          <h2 class="text-4xl font-display mb-8">ウェブ制作の旅 / JOURNEY</h2>
+          <h2 class="text-4xl font-display mb-8">ウェブ制作の旅</h2>
         </div>
         <div class="md:col-span-8 space-y-16">
-          <div class="aspect-[21/9] overflow-hidden bg-neutral-900 grayscale">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHXnI0y7C6U-3i057YVz7K0v0Z96o17U-S5k_iU09-3n820X7f3L7-Z_1-2-3-4-5" class="w-full h-full object-cover grayscale brightness-50" />
+          <div class="aspect-[21/9] overflow-hidden bg-neutral-900">
+            <img src="https://i.pixiv.re/img-original/img/2025/11/01/01/36/58/136942773_p0.jpg" alt="Pixiv Image" class="w-full h-full object-cover" />
           </div>
           <div class="grid md:grid-cols-2 gap-12 text-lg text-neutral-400 font-light leading-relaxed">
             <p>
@@ -66,7 +66,7 @@ onMounted(() => {
     </section>
 
     <!-- Chapter 02 -->
-    <section class="mb-64 reveal-section">
+    <section class="mb-16 reveal-section">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
         <div class="md:col-span-4 border-t border-white/10 pt-8">
           <span class="text-xs tracking-[0.4em] text-neutral-500 uppercase block mb-4">CHAPTER 02</span>
